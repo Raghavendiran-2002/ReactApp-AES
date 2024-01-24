@@ -1,0 +1,14 @@
+
+.parent {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: space-around;
+}
+
+.child {
+    background-color: white;
+    width: 300px;
+    height: 300px;
+}

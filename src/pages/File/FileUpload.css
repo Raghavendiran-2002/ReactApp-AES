@@ -1,0 +1,13 @@
+.file-upload-container {
+    margin-bottom: 20px;
+  }
+  
+  .selected-file-container {
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
