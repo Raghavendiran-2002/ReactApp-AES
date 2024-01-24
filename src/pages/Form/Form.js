@@ -24,7 +24,7 @@ const Form = () => {
     getcountrydata();
   }, []);
 
-  const [marital_Status, setChecked] = useState(false);
+  const [marital_Status, setChecked] = useState("");
   const [text, setText] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -161,22 +161,30 @@ const Form = () => {
         </label>
         <label>
           Marital Status:
-          <input
-            name="checkbox"
-            type="checkbox"
-            checked={marital_Status}
-            onChange={() => {
-              if (marital_Status) {
-                setText("");
-              }
-              setChecked(!marital_Status);
-            }}
-          />
+          <div>
+            <input
+              type="radio"
+              id="agree"
+              value="Yes"
+              checked={marital_Status === "Yes"}
+              onChange={() => setChecked("Yes")}
+            />
+            <label htmlFor="agree">Yes</label>
+
+            <input
+              type="radio"
+              id="disagree"
+              value="No"
+              checked={marital_Status === "No"}
+              onChange={() => setChecked("No")}
+            />
+            <label htmlFor="disagree">No</label>
+          </div>
           Spouse Name:
           <input
             name="input"
             type="text"
-            disabled={!marital_Status}
+            disabled={marital_Status === "No"}
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
