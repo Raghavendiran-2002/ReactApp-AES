@@ -9,6 +9,7 @@ import Graph from "./pages/Graphs/Graphs";
 import FileUpload from "./pages/File/File";
 import ImageUpload from "./pages/ImageUploader/ImageUploader";
 import PaginatedItems from "./pages/Pagenation/pagenation";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -41,6 +42,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
+
         <Routes>
           <Route
             path="/"

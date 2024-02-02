@@ -1,260 +1,4 @@
-// // Import necessary React libraries
-// import React, { useState, useEffect } from "react";
-// // import "./App.css";
-// import Multiselect from "multiselect-react-dropdown";
-// import { useForm } from "react-hook-form";
-// import PaginatedItems from "../Pagenation/pagenation";
-
-// // Define the component
-// const Form = () => {
-//   const {
-//     register,
-//     formState: { errors },
-//     handleSubmit,
-//   } = useForm();
-//   // const [name, setName] = useState("");
-//   // const [email, setEmail] = useState("");
-//   const [phone, setPhone] = useState("");
-//   const [department, setDepartment] = useState("");
-//   const [competence, setCompetence] = useState([]);
-//   const [languages, setLanguages] = useState([]);
-//   const [agree, setAgree] = useState("");
-
-//   const [country, setCountry] = useState([]);
-
-//   useEffect(() => {
-//     const getcountrydata = async () => {
-//       const getcountryname = ["India", "US", "Japan", "UAE"];
-//       setCountry(getcountryname);
-//     };
-//     getcountrydata();
-//   }, []);
-
-//   const [marital_Status, setChecked] = useState("");
-//   const [text, setText] = useState("");
-//   // const handleSubmit = (e) => {
-//   //   e.preventDefault();
-
-//   //   // Validate email
-//   //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//   //   if (!emailRegex.test(email)) {
-//   //     alert("Please enter a valid email address");
-//   //     return;
-//   //   }
-
-//   //   // Validate phone number
-//   //   const phoneRegex = /^[0-9]+$/;
-//   //   if (!phoneRegex.test(phone)) {
-//   //     alert("Phone number should only contain numbers");
-//   //     return;
-//   //   }
-
-//   //   // Process the form data
-//   //   console.log("Form Data:", {
-//   //     name,
-//   //     email,
-//   //     phone,
-//   //     department,
-//   //     competence,
-//   //     languages,
-//   //     agree,
-//   //   });
-
-//   //   // Reset the form
-//   //   setName("");
-//   //   setEmail("");
-//   //   setPhone("");
-//   //   setDepartment("");
-//   //   setCompetence([]);
-//   //   setLanguages([]);
-//   //   setAgree("");
-//   // };
-//   const [val, setVal] = useState("");
-//   const data = ["communication", "teamwork"];
-
-//   return (
-//     <div className="welcome-page">
-//       <h1>Welcome to the Form</h1>
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Name:
-//           {/* <div className={"inputContainer"}>
-//             <input
-//               type="text"
-//               value={name}
-//               onChange={(e) => setName(e.target.value)}
-//               required
-//             />
-//           </div> */}
-//           <div>
-//             <label>Name</label>
-//             <input
-//               placeholder="Enter person name"
-//               {...register("name", { required: true })}
-//             />
-//             <error>
-//               {errors.name?.type === "required" && "Name is required"}
-//             </error>
-//           </div>
-//         </label>
-//         {/* <label>
-//           Email Address:
-//           <input
-//             type="email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             required
-//           />
-//         </label> */}
-//         <div>
-//           <label>Email</label>
-//           <input
-//             placeholder="Enter primary email"
-//             {...register("email", {
-//               required: true,
-//               pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i,
-//             })}
-//           />
-//           <error>
-//             {errors.email?.type === "required" && "Email is required"}
-//             {errors.email?.type === "pattern" &&
-//               "Entered email is in wrong format"}
-//           </error>
-//         </div>
-//         <label>
-//           Phone Number:
-//           <input
-//             type="text"
-//             value={phone}
-//             onChange={(e) => setPhone(e.target.value)}
-//             pattern="[0-9]*"
-//             required
-//           />
-//         </label>
-//         <label>
-//           Department:
-//           <select
-//             value={department}
-//             onChange={(e) => setDepartment(e.target.value)}
-//             required
-//           >
-//             <option value="">Select Department</option>
-//             <option value="IT">IT</option>
-//             <option value="HR">HR</option>
-//             {/* Add more departments as needed */}
-//           </select>
-//         </label>
-//         <label>
-//           Competence:
-//           <Multiselect
-//             isObject={false}
-//             onRemove={(event) => {
-//               console.log(event);
-//             }}
-//             onSelect={(event) => {
-//               console.log(event);
-//             }}
-//             options={country}
-//             showCheckbox
-//           />
-//         </label>
-//         <label>
-//           Choose languages you know:
-//           <div>
-//             <input
-//               type="checkbox"
-//               id="c"
-//               onChange={() => setLanguages((prev) => [...prev, "C"])}
-//             />
-//             <label htmlFor="c">C</label>
-
-//             <input
-//               type="checkbox"
-//               id="cpp"
-//               onChange={() => setLanguages((prev) => [...prev, "C++"])}
-//             />
-//             <label htmlFor="cpp">C++</label>
-
-//             <input
-//               type="checkbox"
-//               id="java"
-//               onChange={() => setLanguages((prev) => [...prev, "Java"])}
-//             />
-//             <label htmlFor="java">Java</label>
-
-//             <input
-//               type="checkbox"
-//               id="python"
-//               onChange={() => setLanguages((prev) => [...prev, "Python"])}
-//             />
-//             <label htmlFor="python">Python</label>
-//           </div>
-//         </label>
-//         <label>
-//           Marital Status:
-//           <div>
-//             <input
-//               type="radio"
-//               id="agree"
-//               value="Yes"
-//               checked={marital_Status === "Yes"}
-//               onChange={() => setChecked("Yes")}
-//             />
-//             <label htmlFor="agree">Yes</label>
-
-//             <input
-//               type="radio"
-//               id="disagree"
-//               value="No"
-//               checked={marital_Status === "No"}
-//               onChange={() => setChecked("No")}
-//             />
-//             <label htmlFor="disagree">No</label>
-//           </div>
-//           Spouse Name:
-//           <input
-//             name="input"
-//             type="text"
-//             disabled={marital_Status === "No"}
-//             value={text}
-//             onChange={(e) => setText(e.target.value)}
-//           />
-//         </label>{" "}
-//         <label>
-//           Do you agree with this statement?
-//           <div>
-//             <input
-//               type="radio"
-//               id="agree"
-//               value="Yes"
-//               checked={agree === "Yes"}
-//               onChange={() => setAgree("Yes")}
-//             />
-//             <label htmlFor="agree">Yes</label>
-
-//             <input
-//               type="radio"
-//               id="disagree"
-//               value="No"
-//               checked={agree === "No"}
-//               onChange={() => setAgree("No")}
-//             />
-//             <label htmlFor="disagree">No</label>
-//           </div>
-//         </label>
-//         <input className={"inputButton"} type="submit" value={"Submit"} />
-//         <PaginatedItems
-//           itemsPerPage={4}
-//           items={["r", "a", "g", "h", "a", "v"]}
-//         ></PaginatedItems>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Form;
-
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Multiselect from "multiselect-react-dropdown";
 
@@ -263,11 +7,22 @@ export default function Form() {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+    watch,
+    setValue,
+    getValues,
+  } = useForm({ defaultValues: { country: [] } });
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
+    alert(watch().marital_status);
   };
+  useEffect(() => {
+    const getcountrydata = async () => {
+      const getcountryname = ["India", "US", "Japan", "UAE"];
+      setValue("country", getcountryname);
+    };
+    getcountrydata();
+  }, []);
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -344,9 +99,9 @@ export default function Form() {
             {errors.department?.type === "required" && "Invalid department"}
           </error>
         </label>
-        <label>
+        {/* <label>
           Competence:
-          {/* <Multiselect
+          <Multiselect
             isObject={false}
             onRemove={(event) => {
               console.log(event);
@@ -356,8 +111,8 @@ export default function Form() {
             }}
             options={{ ...register("country", { required: true }) }}
             showCheckbox
-          /> */}
-        </label>
+          />
+        </label> */}
         <label>
           Choose languages you know:
           <div>
@@ -397,15 +152,19 @@ export default function Form() {
             />
             <label htmlFor="python">Python</label>
           </div>
+          <error>
+            {errors.language?.type === "required" &&
+              "select alleast 1 language"}
+          </error>
         </label>
         <label>
           Marital Status:
           <div>
             <input
-              {...register("marital_status")}
+              {...register("marital_status", { required: true })}
               type="radio"
               id="agree"
-              value=""
+              value="Yes"
               onChange={() => {}}
             />
             <label htmlFor="agree">Yes</label>
@@ -413,19 +172,24 @@ export default function Form() {
             <input
               type="radio"
               id="disagree"
-              {...register("marital_status")}
-              value="1"
+              {...register("marital_status", { required: true })}
+              value="No"
             />
             <label htmlFor="disagree">No</label>
           </div>
+          <error>
+            {errors.marital_status?.type === "required" &&
+              "marital_status not selected"}
+          </error>
           Spouse Name:
           <input
             name="input"
             type="text"
-            disabled={errors.marital_status ? 1 : 0}
+            disabled={watch().marital_status === "Yes"}
             {...register("spouse_name")}
-          />{" "}
-        </label>{" "}
+          />
+        </label>
+
         <label>
           Do you agree with this statement?
           <div>
