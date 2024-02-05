@@ -8,8 +8,8 @@ import Form from "./pages/Form/Form";
 import Graph from "./pages/Graphs/Graphs";
 import FileUpload from "./pages/File/File";
 import ImageUpload from "./pages/ImageUploader/ImageUploader";
-import PaginatedItems from "./pages/Pagenation/pagenation";
 import Navbar from "./components/Navbar/Navbar";
+import ViewFormData from "./pages/ViewFormData/ViewFormData";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -66,7 +66,12 @@ function App() {
           <Route path="/image" element={<ImageUpload />} />
           <Route
             path="/pagenation"
-            element={<PaginatedItems itemsPerPage={4} />}
+            element={
+              <ViewFormData
+                itemsPerPage={4}
+                items={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+              />
+            }
           />
 
           {/* <Route

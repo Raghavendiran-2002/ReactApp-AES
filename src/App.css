@@ -1,6 +1,6 @@
 
 body {
-  background-color: #202124;
+  background-color: #fff;
 }
 
 .container {
@@ -99,6 +99,17 @@ input {
   justify-content: center;
   height: 100vh;
 }
+
+/* Welcome Page */
+
+.welcome-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+}
+
+
 
 
 

@@ -1,9 +1,8 @@
 import { useState } from "react";
-import BarChart from "../../components/BarChart";
-import LineChart from "../../components/LineChart";
-import PieChart from "../../components/PieChart";
+import BarChart from "../../components/Graph/BarChart";
+import LineChart from "../../components/Graph/LineChart";
+import PieChart from "../../components/Graph/PieChart";
 import { UserData } from "../../data/Data";
-import "./Graphs.css";
 
 function Graph() {
   const [userData, setUserData] = useState({

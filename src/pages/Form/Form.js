@@ -218,6 +218,7 @@ export default function Form() {
           <input className="button" type="submit" />
         </div>
       </form>
+      {/* <PaginatedItems itemsPerPage={4} items={[1, 2, 3, 4, 5]} /> */}
     </div>
   );
 }

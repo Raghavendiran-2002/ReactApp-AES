@@ -1,4 +1,3 @@
-import "./Welcome.css";
 import { useNavigate } from "react-router-dom";
 
 function Welcome() {
@@ -10,7 +9,7 @@ function Welcome() {
         {" "}
         <h1>You have successfully logged in!!!</h1>
       </div>
-      <div className="welcome">
+      <div className="welcome-page">
         <div className="buttons">
           <input
             className={"inputButton"}
@@ -32,7 +31,7 @@ function Welcome() {
           />
         </div>{" "}
       </div>
-      <div className="welcome">
+      <div className="welcome-page">
         <div className="buttons">
           <input
             className={"inputButton"}
